@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Popup from "./components/Popup/Popup";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [isPopupOpen, setisPopupOpen] = useState(false);
+	return (
+		<div className="App">
+			{isPopupOpen ? (
+				<Popup setisPopupOpen={setisPopupOpen} />
+			) : (
+				<button onClick={() => setisPopupOpen(true)}>Open Popup</button>
+			)}
+		</div>
+	);
 }
 
 export default App;
